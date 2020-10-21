@@ -1,0 +1,22 @@
+<a href="#" id="new-button">New</a>
+<table>
+<thead>
+    <tr>
+        <th>Date</th>
+        <th>Time spend on hobby</th>
+        <th>Number of achievements</th>
+        <th>Commands</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let hobbyInfo of hobbyData"> 
+        <td>{{ hobyInfo.date | date:'shortDate' }}</td>
+        <td>{{ hobbyInfo.timeInSeconds / 60 | number: '1.0-0' }}:{{ hobbyInfo.timeInSeconds % 60 |number: '2.0-0' }}</td>
+        <td>{{ hobbyInfo.numberOfAcievements | number:'1' }}</td>
+        <td>
+            <a href="#" (click)="editRecord(this)">Edit</a>
+            <a href="#" (click)="deleteRecord(this)">Delete</a>
+        </td>
+    </tr>
+</tbody>
+</table>

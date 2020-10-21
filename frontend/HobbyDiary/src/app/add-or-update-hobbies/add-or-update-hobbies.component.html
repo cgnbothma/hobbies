@@ -1,0 +1,20 @@
+<div>
+    <h2 *ngIf="!hobbyInfo || hobbyInfo.id === undefined">Add record</h2>
+    <h2 *ngIf="hobbyInfo && hobbyInfo.id !== undefined">Update record (ID: )</h2>
+    <form>
+        <div class="form-group">
+            <label for="date-input">Hobby date:</label>
+            <input type="date" id="date-input" [(ngModel)]="hobbyInfo.date" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="description-input">Description</label>
+            <input type="text" id="description-input" [(ngModel)]="hobbyInfo.description" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="duration-input">Time (s)</label>
+            <input type="number" id="time-input" [(ngModel)]="hobbyInfo.timeInSeconds" (input)="hobbyInfo.timeInSeconds = $event.target.value" class="form-control" />
+        </div>
+        <button type="button" class="btn btn-primary" (click)="addOrUpdateHobbyRecord($event);">Save</button>
+
+    </form>
+</div>
